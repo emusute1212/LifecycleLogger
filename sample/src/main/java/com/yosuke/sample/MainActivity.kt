@@ -1,4 +1,4 @@
-package com.yosuke.lifecyclelogger
+package com.yosuke.sample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

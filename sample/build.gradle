@@ -7,7 +7,7 @@ android {
     buildToolsVersion "29.0.2"
 
     defaultConfig {
-        applicationId "com.yosuke.lifecyclelogger"
+        applicationId "com.yosuke.sample"
         minSdkVersion 23
         targetSdkVersion 29
         versionCode 1

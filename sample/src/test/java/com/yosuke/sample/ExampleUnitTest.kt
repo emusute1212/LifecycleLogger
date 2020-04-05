@@ -1,4 +1,4 @@
-package com.yosuke.lifecyclelogger
+package com.yosuke.sample
 
 import org.junit.Test
 
