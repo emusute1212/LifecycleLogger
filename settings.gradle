@@ -1,2 +1,3 @@
-rootProject.name='LifecycleLogger'
-include ':app'
+rootProject.name = 'LifecycleLogger'
+include ':lifecyclelogger'
+include ':sample'
