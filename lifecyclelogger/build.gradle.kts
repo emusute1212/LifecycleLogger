@@ -5,14 +5,14 @@ plugins {
 }
 
 android {
-    compileSdkVersion(29)
-    buildToolsVersion("29.0.2")
+    compileSdkVersion(Versions.compileSdk)
+    buildToolsVersion(Versions.buildTools)
 
     defaultConfig {
-        minSdkVersion(23)
-        targetSdkVersion(29)
-        versionCode = 1
-        versionName = "1.0"
+        minSdkVersion(Versions.minSdk)
+        targetSdkVersion(Versions.targetSdk)
+        versionCode = Versions.LifecycleLogger.code
+        versionName = Versions.LifecycleLogger.name
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -32,12 +32,11 @@ android {
 
 
 dependencies {
-    val kotlinVersion: String by extra
     implementation(fileTree(mapOf("dir" to "libs", "include" to arrayOf("*.jar"))))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
-    implementation("androidx.appcompat:appcompat:1.0.2")
-    implementation("androidx.core:core-ktx:1.0.2")
-    testImplementation("junit:junit:4.12")
-    androidTestImplementation("androidx.test.ext:junit:1.1.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+    implementation(Dependencies.Kotlin.stdLib)
+    implementation(Dependencies.AndroidX.appCompat)
+    implementation(Dependencies.AndroidX.coreKtx)
+    testImplementation(Dependencies.Test.jUnit)
+    androidTestImplementation(Dependencies.AndroidX.Test.ext)
+    androidTestImplementation(Dependencies.AndroidX.Test.espresso)
 }
