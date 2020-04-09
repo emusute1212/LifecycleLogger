@@ -1,8 +1,8 @@
-package com.yosuke.sample
+package io.github.emusute1212.sample
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.yosuke.lifecyclelogger.Logger
+import io.github.emusute1212.lifecyclelogger.Logger
 
 class MainActivity : AppCompatActivity() {
 
