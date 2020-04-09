@@ -82,7 +82,7 @@ tasks {
                     }
                     pom.version = android.defaultConfig.versionName
                     pom.groupId = "com.github.emusute1212.lifecyclelogger"
-                    pom.artifactId = "review"
+                    pom.artifactId = "core"
                 }
             }
         }
