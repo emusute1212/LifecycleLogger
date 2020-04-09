@@ -8,8 +8,9 @@ object Versions {
     const val targetSdk = 29
 
     object LifecycleLogger {
-        const val code = 1
-        const val name = "1.0"
+        private val version = Version(0, 1, 0, 0)
+        val code = version.getVersionCode()
+        val name = version.getVersionName()
     }
 
     object Sample {
@@ -31,4 +32,19 @@ object Versions {
     object Test {
         const val jUnit = "4.12"
     }
+
+    private fun Version.getVersionName(): String {
+        return "$major.$minor.$patch.$rc"
+    }
+
+    private fun Version.getVersionCode(): Int {
+        return ((1 + major) * 10000 + minor * 100 + patch) * 100 + rc
+    }
+
+    private data class Version(
+        val major: Int,
+        val minor: Int,
+        val patch: Int,
+        val rc: Int
+    )
 }
