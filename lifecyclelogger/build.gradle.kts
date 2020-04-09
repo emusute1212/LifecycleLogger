@@ -27,6 +27,28 @@ android {
             )
         }
     }
+    packagingOptions {
+        exclude("assets/*")
+    }
+    libraryVariants.all {
+        outputs.all {
+            packageLibraryProvider?.configure {
+                exclude("libs/*")
+            }
+            (this as com.android.build.gradle.internal.api.BaseVariantOutputImpl).outputFileName =
+                when (name) {
+                    android.buildTypes.getByName("release").name -> {
+                        outputFile.name.replace(("-release.aar"), "-${version}.aar")
+                    }
+                    android.buildTypes.getByName("debug").name -> {
+                        outputFile.name.replace((".aar"), "-${version}.aar")
+                    }
+                    else -> {
+                        throw IllegalStateException("$name is not found...")
+                    }
+                }
+        }
+    }
 
 }
 
