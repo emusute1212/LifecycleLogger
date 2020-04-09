@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-android-extensions")
+    id("maven")
 }
 
 android {
@@ -67,4 +68,23 @@ dependencies {
     testImplementation(Dependencies.Test.jUnit)
     androidTestImplementation(Dependencies.AndroidX.Test.ext)
     androidTestImplementation(Dependencies.AndroidX.Test.espresso)
+}
+
+val repo = File(rootDir, "repository")
+
+tasks {
+    "uploadArchives"(Upload::class) {
+        repositories {
+            withConvention(MavenRepositoryHandlerConvention::class) {
+                mavenDeployer {
+                    withGroovyBuilder {
+                        "repository"("url" to uri("file://${repo.absolutePath}"))
+                    }
+                    pom.version = android.defaultConfig.versionName
+                    pom.groupId = "com.github.emusute"
+                    pom.artifactId = "review"
+                }
+            }
+        }
+    }
 }
