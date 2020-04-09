@@ -81,7 +81,7 @@ tasks {
                         "repository"("url" to uri("file://${repo.absolutePath}"))
                     }
                     pom.version = android.defaultConfig.versionName
-                    pom.groupId = "com.github.emusute"
+                    pom.groupId = "com.github.emusute1212.lifecyclelogger"
                     pom.artifactId = "review"
                 }
             }
