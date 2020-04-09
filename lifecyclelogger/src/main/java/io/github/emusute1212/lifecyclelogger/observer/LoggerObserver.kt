@@ -1,4 +1,4 @@
-package com.yosuke.lifecyclelogger.observer
+package io.github.emusute1212.lifecyclelogger.observer
 
 import android.util.Log
 import androidx.lifecycle.Lifecycle

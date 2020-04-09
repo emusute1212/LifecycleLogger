@@ -9,7 +9,7 @@ android {
     buildToolsVersion(Versions.buildTools)
 
     defaultConfig {
-        applicationId = "com.yosuke.sample"
+        applicationId = "io.github.emusute1212.sample"
         minSdkVersion(Versions.minSdk)
         targetSdkVersion(Versions.targetSdk)
         versionCode = Versions.Sample.code

@@ -1,7 +1,7 @@
-package com.yosuke.lifecyclelogger
+package io.github.emusute1212.lifecyclelogger
 
 import androidx.lifecycle.LifecycleOwner
-import com.yosuke.lifecyclelogger.observer.LoggerObserver
+import io.github.emusute1212.lifecyclelogger.observer.LoggerObserver
 
 object Logger {
     fun bind(lifecycleOwner: LifecycleOwner) {
@@ -9,6 +9,10 @@ object Logger {
     }
 
     fun bindWithTag(lifecycleOwner: LifecycleOwner, tag: String) {
-        lifecycleOwner.lifecycle.addObserver(LoggerObserver(tag))
+        lifecycleOwner.lifecycle.addObserver(
+            LoggerObserver(
+                tag
+            )
+        )
     }
 }
