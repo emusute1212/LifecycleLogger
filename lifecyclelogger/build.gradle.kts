@@ -38,10 +38,16 @@ android {
             (this as com.android.build.gradle.internal.api.BaseVariantOutputImpl).outputFileName =
                 when (name) {
                     android.buildTypes.getByName("release").name -> {
-                        outputFile.name.replace(("-release.aar"), "-${version}.aar")
+                        outputFile.name.replace(
+                            ("-release.aar"),
+                            "-${android.defaultConfig.versionName}.aar"
+                        )
                     }
                     android.buildTypes.getByName("debug").name -> {
-                        outputFile.name.replace((".aar"), "-${version}.aar")
+                        outputFile.name.replace(
+                            (".aar"),
+                            "-${android.defaultConfig.versionName}.aar"
+                        )
                     }
                     else -> {
                         throw IllegalStateException("$name is not found...")
