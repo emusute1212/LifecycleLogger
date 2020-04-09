@@ -1,0 +1,12 @@
+name: Android CD
+
+on: page_build
+
+jobs:
+  CD:
+    needs: CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deployment
+        run: ./gradlew uploadArchives
