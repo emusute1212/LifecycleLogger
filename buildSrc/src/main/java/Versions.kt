@@ -8,7 +8,7 @@ object Versions {
     const val targetSdk = 29
 
     object LifecycleLogger {
-        private val version = Version(0, 1, 0, 0)
+        private val version = Version(0, 1, 0, 1)
         val code = version.getVersionCode()
         val name = version.getVersionName()
     }
