@@ -2,9 +2,8 @@ name: Android CI
 
 on:
   push:
-    branches:
-      - /refs/heads/*
-      - !master
+    branches-ignore:
+      - master
 
 jobs:
   CI:
