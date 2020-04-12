@@ -1,12 +1,24 @@
 name: Android CD
 
-on: page_build
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   CD:
-    needs: CI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Deployment
+      - name: set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Create maven repository
         run: ./gradlew uploadArchives
+      - name: Deploy repository
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: repository
