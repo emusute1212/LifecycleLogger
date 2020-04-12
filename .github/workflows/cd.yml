@@ -1,26 +1,12 @@
-name: Android CI/CD
+name: Android CD
 
 on:
   push:
-    pull_request:
-      branches:
-        - gh-pages
+    branches:
+      - master
 
 jobs:
-  CI:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - name: Build with Gradle
-        run: ./gradlew build
-      - name: Test with Gradle
-        run: ./gradlew test
   CD:
-    needs: CI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,5 +14,11 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Deployment
+      - name: Create maven repository
         run: ./gradlew uploadArchives
+      - name: Deploy repository
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: repository
