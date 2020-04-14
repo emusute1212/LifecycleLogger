@@ -70,7 +70,7 @@ dependencies {
     androidTestImplementation(Dependencies.AndroidX.Test.espresso)
 }
 
-val repo = File(rootDir, "repository")
+val repo = File(rootDir, "workspace/repository")
 
 tasks {
     "uploadArchives"(Upload::class) {
