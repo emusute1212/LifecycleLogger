@@ -1,9 +1,9 @@
 name: Android CD
 
 on:
-  push:
-    branches:
-      - master
+  create:
+    tags:
+      - v*
 
 jobs:
   CD:

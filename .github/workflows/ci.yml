@@ -2,8 +2,10 @@ name: Android CI
 
 on:
   push:
-    branches-ignore:
-      - master
+    tags-ignore:
+      - 'v*'
+    branches:
+      - '**'
 
 jobs:
   CI:
